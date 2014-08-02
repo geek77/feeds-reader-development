@@ -30,11 +30,12 @@
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+        <!--
 	<linkedResources>
 		<link>
 			<name>src/su</name>
 			<type>2</type>
 			<locationURI>PARENT-3-PROJECT_LOC/Desktop/%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D1%8B/FeedComponents/contentprovider/generated/su</locationURI>
 		</link>
-	</linkedResources>
+	</linkedResources> -->
 </projectDescription>
