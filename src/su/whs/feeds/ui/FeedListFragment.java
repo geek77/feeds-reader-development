@@ -2,6 +2,7 @@ package su.whs.feeds.ui;
 
 import su.whs.feeds.R;
 import su.whs.feeds.provider.FeedsCursorLoader;
+import su.whs.feeds.provider.feeds.FeedsColumns;
 import su.whs.feeds.provider.feeds.FeedsUpdater;
 import su.whs.feeds.provider.feeds.FeedsUpdaterClient;
 import su.whs.feeds.ui.EnhancedListView.OnDismissCallback;
@@ -100,7 +101,16 @@ public class FeedListFragment extends Fragment implements LoaderCallbacks<Cursor
 	@Override
 	public Undoable onDismiss(EnhancedListView listView, int position) {
 		Log.v(TAG,"onDismiss " + String.valueOf(position));
-		return null;
+		final long id = mAdapter.getItemId(position); 
+		getActivity().getContentResolver().delete(FeedsColumns.CONTENT_URI, "_id = ?", 
+				new String[]{ String.valueOf(id)});
+		return new Undoable() {
+			@Override
+			public void undo() {
+				Log.v(TAG,"try to undo remove " + String.valueOf(id));
+				
+			}
+		};
 	}
 	
 }
